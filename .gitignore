@@ -1,0 +1,21 @@
+# Node
+node_modules
+
+# mergetool backup files
+*.orig
+
+# Bower Components
+client/lib
+
+# private variables
+.env
+
+# Concatenated Scripts
+client/scripts.js
+
+# database sqlite files
+database/data/db.sqlite
+
+# Compiled Styles
+client/styles/main.css
+client/main.css
