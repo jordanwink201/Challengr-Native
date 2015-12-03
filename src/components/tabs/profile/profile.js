@@ -71,8 +71,7 @@ var Profile = React.createClass({
   },
 
   profileInfo: function(){
-    // Needs to be configured
-    var image = `../../..${this.state.photoURL}`;
+
     var fName = _.capitalize(this.state.firstName);
     var lName = _.capitalize(this.state.lastName);
 
@@ -84,7 +83,7 @@ var Profile = React.createClass({
         <View style={styles.headerMiddle}>
           <Image 
             style={styles.photo}
-            source={require('../../../image/placeholder.png')} />
+            source={{uri: this.state.photoURL}} />
           <Text style={styles.profileText}>{fName} {lName}</Text>
         </View>
         <View style={styles.headerRight}>
@@ -118,7 +117,7 @@ var Profile = React.createClass({
           <View style={styles.leftRow}>
             <Image 
               style={styles.rowPhoto}
-              source={require('../../../image/placeholder.png')} />
+              source={{uri: rowData.photoURL}} />
           </View>
           <View style={styles.rightRow}>
             <View style={styles.rowData}>

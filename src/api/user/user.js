@@ -9,9 +9,6 @@ var UserAPI = {
     return API.fetchJSON(userFriendsURL, 'GET', null, token)      
       .then(function(json){
         return json;
-      })
-      .catch((err) => {
-        console.log('ERROR : ', err)
       });
   }
 

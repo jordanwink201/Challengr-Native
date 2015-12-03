@@ -1,10 +1,7 @@
 var API = require('../api');
 
 // Routes
-
-// needs to be changed to challenge/my besides challenge/user
-
-var userChallengesURL = `${API.rootUrl}challenge/user`;
+var userChallengesURL = `${API.rootUrl}challenge/my`;
 var allChallengesURL = `${API.rootUrl}challenge/`;
 
 var UserAPI = {
@@ -13,9 +10,6 @@ var UserAPI = {
     return API.fetchJSON(userChallengesURL, 'GET', null, token)      
       .then(function(json){
         return json;
-      })
-      .catch((err) => {
-        console.log('ERROR : ', err)
       });
   },
 
@@ -23,9 +17,6 @@ var UserAPI = {
     return API.fetchJSON(allChallengesURL, 'GET', null, token)      
       .then(function(json){
         return json;
-      })
-      .catch((err) => {
-        console.log('ERROR : ', err)
       });
   }
 
