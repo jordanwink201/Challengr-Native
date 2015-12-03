@@ -16,6 +16,7 @@ var {
 
 var SearchBar = require('SearchBar');
 var API = require('../../../api/user/user');
+var CreateChallenge = require('./createChallenge');
 
 var ChooseFriend = React.createClass({
 
@@ -72,11 +73,21 @@ var ChooseFriend = React.createClass({
     );
   },
 
+  selectFriend: function(friend){
+    this.props.navigator.push({
+      title: 'Create Challenge',
+      component: CreateChallenge,
+      passProps: {friend: friend}
+    });
+  },
+
+// LIST VIEW
   _renderRow: function(friend){
     return (
       <TouchableHighlight
-        onPress={this.selectFriend}
-        underlayColor='black'>
+        key={friend.id}
+        onPress={() => this.selectFriend(friend)}
+        underlayColor='transparent'>
         <View style={styles.row}>
           <View style={styles.leftRow}>
             <Image 
@@ -91,7 +102,6 @@ var ChooseFriend = React.createClass({
     )
   },
 
-// LIST VIEW
   _renderSeparator: function(){
     return <View style={styles.rowSeparator}/>
   },
@@ -109,7 +119,6 @@ var ChooseFriend = React.createClass({
 // SEARCH BAR
   onSearchChange: function(event) {
     var filter = event.nativeEvent.text.toLowerCase();
-    console.log('event : ', event);
     this.searchFriends(filter);
   },
 
@@ -127,12 +136,18 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
+  // Utility
+  scrollSpinner: {
+    marginVertical: 20,
+  },
+
   searchbar: {
     height: 40,
   },
   separator: {
     height: 1,
-    backgroundColor: '#eeeeee',
+    backgroundColor: 'rgba(216, 216, 216, 1)',
   },
 
   rowSeparator: {
@@ -148,7 +163,6 @@ var styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     flexDirection: 'row',
-
   },
 
   leftRow: {

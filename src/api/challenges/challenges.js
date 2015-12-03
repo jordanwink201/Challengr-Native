@@ -1,6 +1,9 @@
 var API = require('../api');
 
 // Routes
+
+// needs to be changed to challenge/my besides challenge/user
+
 var userChallengesURL = `${API.rootUrl}challenge/user`;
 var allChallengesURL = `${API.rootUrl}challenge/`;
 
