@@ -85,7 +85,6 @@ var Settings = React.createClass({
   },
 
   // List View
-
   _renderRow: function(transaction){
     return (
       <TouchableHighlight

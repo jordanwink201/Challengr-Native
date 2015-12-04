@@ -167,18 +167,16 @@ var Profile = React.createClass({
               <Text style={styles.rowDataTitle}>{rowData.title}</Text>
               <Text style={styles.rowDataDescription}>{rowData.description}</Text>
             </View>
-            <View style={styles.rowSocial}>
 
+            <View style={styles.rowSocial}>
               <View style={styles.iconText}>
                 <Icon
                   name='material|money'
                   size={15}
                   color='#333333'
-                  style={{width: 15, height: 15}}
-                />
+                  style={{width: 15, height: 15}} />
                 <Text style={styles.rowSocialText}>{rowData.charityAmount * 100}</Text>
               </View>
-
 
               <TouchableHighlight
                 onPress={() => this.increaseLike(rowData)}
@@ -188,8 +186,7 @@ var Profile = React.createClass({
                     name='material|favorite-outline'
                     size={15}
                     color='#333333'
-                    style={{width: 15, height: 15}}
-                  />
+                    style={{width: 15, height: 15}} />
                   <Text style={styles.rowSocialText}>{rowData.likes}</Text>
                 </View>
               </TouchableHighlight>
@@ -199,8 +196,7 @@ var Profile = React.createClass({
                   name='material|time'
                   size={15}
                   color='#333333'
-                  style={{width: 15, height: 15}}
-                />
+                  style={{width: 15, height: 15}} />
                 <Text style={styles.rowSocialText}>{rowData.issuedDate}</Text>
               </View>
             </View>
@@ -211,14 +207,13 @@ var Profile = React.createClass({
   },
 
   increaseLike: function(challenge){
-    console.log('increase like.. : ', challenge);
 
-    var updateObj = {
+    var updateObj = JSON.stringify({
       id: challenge.id,
       likes: ++challenge.likes,
       completed: challenge.completed,
       notCompleted: challenge.notCompleted,
-    };
+    });
 
     console.log('update obj : ', updateObj, ' with token : ', this.state.token);
 

@@ -6,7 +6,7 @@ var transactionsURL = `${API.rootUrl}braintree/transactions`;
 var BraintreeAPI = {
 
   getTransactions: function(token){
-    return API.fetchJSON(transactionsURL, 'GET', null, token)      
+    return API.fetchJSON(transactionsURL, token)      
       .then(function(json){
         return json;
       });

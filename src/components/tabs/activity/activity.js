@@ -87,17 +87,45 @@ var Activity = React.createClass({
               <Icon
                 name='ion|beer'
                 size={150}
-                color='#887700'
-                
-              />
+                color='#887700' />
               <Text style={styles.rowDataTitle}>{rowData.title}</Text>
               <Text style={styles.rowDataDescription}>{rowData.description}</Text>
             </View>
             <View style={styles.rowSocial}>
-              <Text style={styles.rowSocialText}>{rowData.charityAmount}</Text>
-              <Text style={styles.rowSocialText}>{rowData.likes}</Text>
-              <Text style={styles.rowSocialText}>{rowData.issuedDate}</Text>
+
+              <View style={styles.iconText}>
+                <Icon
+                  name='material|money'
+                  size={15}
+                  color='#333333'
+                  style={{width: 15, height: 15}} />
+                <Text style={styles.rowSocialText}>{rowData.charityAmount * 100}</Text>
+              </View>
+
+              <TouchableHighlight
+                onPress={() => this.increaseLike(rowData)}
+                underlayColor='transparent'>
+                <View style={styles.iconText}>
+                  <Icon
+                    name='material|favorite-outline'
+                    size={15}
+                    color='#333333'
+                    style={{width: 15, height: 15}} />
+                  <Text style={styles.rowSocialText}>{rowData.likes}</Text>
+                </View>
+              </TouchableHighlight>
+
+              <View style={styles.iconText}>
+                <Icon
+                  name='material|time'
+                  size={15}
+                  color='#333333'
+                  style={{width: 15, height: 15}} />
+                <Text style={styles.rowSocialText}>{rowData.issuedDate}</Text>
+              </View>
+
             </View>
+
           </View>
         </View>
       </TouchableHighlight>
@@ -178,6 +206,9 @@ var styles = StyleSheet.create({
   rowSocialText:{
     color: '#546979',
     fontSize: 14,
+  },
+  iconText: {
+    flexDirection: 'row',
   },
   leftRow: {
     flex: 1,
