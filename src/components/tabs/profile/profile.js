@@ -131,9 +131,6 @@ var Profile = React.createClass({
   },
 
   userChallenges: function(){
-
-    console.log('dataSource : ', this.dataSource);
-
     return (      
       <ListView
         renderSeparator={this._renderSeparator}
@@ -147,7 +144,6 @@ var Profile = React.createClass({
   },
 
   _renderRow: function(rowData){
-
     return (
       <TouchableHighlight 
         onPress={() => this._showDetailView(rowData)}
