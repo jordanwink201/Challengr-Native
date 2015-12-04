@@ -133,9 +133,10 @@ var Profile = React.createClass({
   userChallenges: function(){
     return (      
       <ListView
+        ref="listview"
+        style={styles.footer}
         renderSeparator={this._renderSeparator}
         automaticallyAdjustContentInsets={false}
-        style={styles.footer}
         dataSource={this.state.dataSource}
         renderFooter={this._renderFooter}
         renderRow={this._renderRow}
@@ -144,6 +145,9 @@ var Profile = React.createClass({
   },
 
   _renderRow: function(rowData){
+
+    console.log('rowData : ', rowData);
+
     return (
       <TouchableHighlight 
         onPress={() => this._showDetailView(rowData)}
@@ -154,7 +158,7 @@ var Profile = React.createClass({
           <View style={styles.leftRow}>
             <Image 
               style={styles.rowPhoto}
-              source={{uri: rowData.photoURL}} />
+              source={{uri: rowData.Challenged.photoURL}} />
           </View>
           <View style={styles.rightRow}>
             <View style={styles.rowData}>

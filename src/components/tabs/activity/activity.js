@@ -12,16 +12,8 @@ var {
   AsyncStorage,
   TouchableHighlight,
   ActivityIndicatorIOS,
+  Image,
 } = React;
-
-/*
-  <Icon
-    name='material|accounts-alt'
-    size={70}
-    color='#3b5998'
-    style={styles.beer}
-  />
-*/
 
 var Icons = ['favorite-outline', 'favorite', 'card', 'camera', 'time', 'facebook-box', 'facebook', 'twitter', 'account', 'accounts-alt', 'search', 'settings', 'money'];
 
@@ -78,9 +70,6 @@ var Activity = React.createClass({
   },
 
   _renderRow: function(rowData){
-    // console.log('Redner row... : ', rowData);
-    // var challengedPhoto = rowData.Challenged.photoURL;
-    // console.log('challenged : ', challengedPhoto);
     return (
       <TouchableHighlight 
         onPress={() => this._showDetailView(rowData)}
@@ -89,7 +78,9 @@ var Activity = React.createClass({
         style={styles.row}>
         <View style={styles.rowContainer}>
           <View style={styles.leftRow}>
-
+            <Image 
+              style={styles.rowPhoto}
+              source={{uri: rowData.Challenged.photoURL}} />
           </View>
           <View style={styles.rightRow}>
             <View style={styles.rowData}>
@@ -190,7 +181,6 @@ var styles = StyleSheet.create({
   },
   leftRow: {
     flex: 1,
-    backgroundColor: 'blue',
   },
   rightRow: {
     flex: 4,

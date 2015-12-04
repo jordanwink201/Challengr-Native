@@ -81,7 +81,7 @@ var Settings = React.createClass({
 
   _signout: function(){
     // clear the async storage and go to the sign in view
-    this.navigator.popToTop();
+    this.props.navigator.popToTop();
   },
 
   // List View
