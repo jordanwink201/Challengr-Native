@@ -2,8 +2,7 @@
 'use strict';
 
 var React = require('react-native');
-
-var { Icon, } = require('react-native-icons');
+var { Icon } = require('react-native-icons');
 
 var {
   StyleSheet,
@@ -115,9 +114,6 @@ var Activity = React.createClass({
   },
 
   _showDetailView: function(challenge){
-
-    console.log('challenge : ', challenge);
-
     this.props.navigator.push({
       title: challenge.title,
       component: DetailChallenge,

@@ -3,8 +3,9 @@
 
 var React = require('react-native');
 
-var { TabBarIOS } = require('react-native-icons');
-var TabBarItemIOS = TabBarIOS.Item;
+var { 
+  TabBarIOS 
+} = require('react-native-icons');
 
 var {
   StyleSheet,
@@ -20,7 +21,7 @@ var Tabs = React.createClass({
 
   getInitialState: function(){
     return {
-      selectedTab : 'activityTab'
+      selectedTab : 'profileTab'
     }
   },
 
@@ -31,8 +32,8 @@ var Tabs = React.createClass({
         tintColor={'#c1d82f'}
         barTintColor={'#000000'}
         styles={styles.tabBar}>
-        <TabBarItemIOS
-            iconName={'ion|ios-paper-outline'}
+        <TabBarIOS.Item
+            iconName={'ion|ios-paper'}
             selectedIconName={'ion|ios-paper'}
             title={'create challenge'}
             iconSize={32}
@@ -41,8 +42,8 @@ var Tabs = React.createClass({
             this.setState({ selectedTab: 'createChallengeTab', });
           }}>
           <CreateChallenge/>
-        </TabBarItemIOS>
-        <TabBarItemIOS
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
             iconName={'ion|chatboxes'}
             title={'activity'}
             iconSize={32}
@@ -51,10 +52,10 @@ var Tabs = React.createClass({
             this.setState({ selectedTab: 'activityTab' });
           }}>
           <ActivityTab/>
-        </TabBarItemIOS>
-        <TabBarItemIOS
-            iconName={'ion|ios-gear-outline'}
-            selectedIconName={'ion|ios-gear'}
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+            iconName={'material|account'}
+            selectedIconName={'material|account'}
             title={'profile'}
             iconSize={32}
             selected={this.state.selectedTab === 'profileTab'}
@@ -62,7 +63,7 @@ var Tabs = React.createClass({
             this.setState({ selectedTab: 'profileTab' });
           }}>
           <ProfileTab/>
-        </TabBarItemIOS>
+        </TabBarIOS.Item>
       </TabBarIOS>
     );
   }
