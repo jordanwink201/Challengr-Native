@@ -22,11 +22,11 @@ var UserAPI = {
 
   updateChallenge: function(token, obj){
 
-    return API.postJSON(challengesURL, 'POST', obj, token)
-      .then(function(json){
-        console.log('response : ', json);
-        return json;
-      })    
+    console.log('obj : ', obj);
+
+    var challengeObj = JSON.stringify(obj);
+
+    return API.postJSON(challengesURL, 'PUT', challengeObj, token)
       .catch(function (err) {
         console.log('error increasing like : ', err);
       });

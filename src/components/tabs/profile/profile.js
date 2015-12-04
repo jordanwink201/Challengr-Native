@@ -17,6 +17,7 @@ var {
 
 var API = require('../../../api/challenges/challenges');
 var DetailChallenge = require('../detailChallenge');
+var ListChallenge = require('../listChallenge');
 var Settings = require('./settings');
 
 var Profile = React.createClass({
@@ -143,90 +144,14 @@ var Profile = React.createClass({
         renderFooter={this._renderFooter}
         renderRow={this._renderRow}
       />
-    )
+    );
   },
 
   _renderRow: function(rowData){
-
-    console.log('rowData : ', rowData);
-
-    return (
-      <TouchableHighlight 
-        onPress={() => this._showDetailView(rowData)}
-        key={rowData.id}
-        underlayColor='transparent'
-        style={styles.row}>
-        <View style={styles.rowContainer}>
-          <View style={styles.leftRow}>
-            <Image 
-              style={styles.rowPhoto}
-              source={{uri: rowData.Challenged.photoURL}} />
-          </View>
-          <View style={styles.rightRow}>
-            <View style={styles.rowData}>
-              <Text style={styles.rowDataTitle}>{rowData.title}</Text>
-              <Text style={styles.rowDataDescription}>{rowData.description}</Text>
-            </View>
-
-            <View style={styles.rowSocial}>
-              <View style={styles.iconText}>
-                <Icon
-                  name='material|money'
-                  size={15}
-                  color='#333333'
-                  style={{width: 15, height: 15}} />
-                <Text style={styles.rowSocialText}>{rowData.charityAmount * 100}</Text>
-              </View>
-
-              <TouchableHighlight
-                onPress={() => this.increaseLike(rowData)}
-                underlayColor='transparent'>
-                <View style={styles.iconText}>
-                  <Icon
-                    name='material|favorite-outline'
-                    size={15}
-                    color='#333333'
-                    style={{width: 15, height: 15}} />
-                  <Text style={styles.rowSocialText}>{rowData.likes}</Text>
-                </View>
-              </TouchableHighlight>
-
-              <View style={styles.iconText}>
-                <Icon
-                  name='material|time'
-                  size={15}
-                  color='#333333'
-                  style={{width: 15, height: 15}} />
-                <Text style={styles.rowSocialText}>{rowData.issuedDate}</Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </TouchableHighlight>
-    )
-  },
-
-  increaseLike: function(challenge){
-
-    var updateObj = JSON.stringify({
-      id: challenge.id,
-      likes: ++challenge.likes,
-      completed: challenge.completed,
-      notCompleted: challenge.notCompleted,
-    });
-
-    console.log('update obj : ', updateObj, ' with token : ', this.state.token);
-
-    // API
-    API.updateChallenge(this.state.token, updateObj)
-      .then(function(challenges){
-        // Loader
-        self.state.isLoading = false;
-        // State
-        self.setState({
-          dataSource: self.getDataSource(challenges),
-        })
-      })
+    return <ListChallenge 
+              rowData={rowData}
+              showDetailView={this._showDetailView}
+              token={this.state.token}/>
   },
 
   _showDetailView: function(challenge){
@@ -313,54 +238,10 @@ var styles = StyleSheet.create({
     flex: 2,
     marginBottom: 50,
   },
-  row: {
-    marginBottom: 5,
-    marginTop: 5,
-  },
   separator: {
     backgroundColor: 'rgba(216, 216, 216, 1)',
     height: 1,
     marginLeft: 80,
-  },
-  rowContainer: {
-    flexDirection: 'row',
-  },
-  rowPhoto: {
-    width: 66,
-    height: 66,
-    borderRadius: 33,
-  },
-  // title & description
-  rowData: {
-
-  },
-  rowDataTitle: {
-    color: '#546979',
-    fontSize: 18,
-  },
-  rowDataDescription: {
-    color: '#546979',
-    fontSize: 16,
-  },
-  // likes, time, charity amount
-  rowSocial:{
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  iconText: {
-    flexDirection: 'row',
-  },
-  rowSocialText:{
-    color: '#546979',
-    fontSize: 14,
-  },
-  leftRow: {
-    flex: 1,
-    alignSelf: 'center',
-  },
-  rightRow: {
-    flex: 4,
-    alignSelf: 'center',
   }
 });
 
