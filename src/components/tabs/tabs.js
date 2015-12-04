@@ -20,7 +20,7 @@ var Tabs = React.createClass({
 
   getInitialState: function(){
     return {
-      selectedTab : 'createChallengeTab'
+      selectedTab : 'activityTab'
     }
   },
 

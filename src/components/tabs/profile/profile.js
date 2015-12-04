@@ -87,13 +87,15 @@ var Profile = React.createClass({
           <Text style={styles.profileText}>{fName} {lName}</Text>
         </View>
         <View style={styles.headerRight}>
-          
         </View>
       </View>
     )
   },
 
   userChallenges: function(){
+
+    console.log('dataSource : ', this.dataSource);
+
     return (      
       <ListView
         renderSeparator={this._renderSeparator}
@@ -107,6 +109,7 @@ var Profile = React.createClass({
   },
 
   _renderRow: function(rowData){
+
     return (
       <TouchableHighlight 
         onPress={() => this._showDetailView(rowData)}

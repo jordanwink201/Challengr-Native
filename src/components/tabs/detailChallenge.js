@@ -15,11 +15,11 @@ var Button = require('../common/button');
 var DetailChallenge = React.createClass({
 
   getInitialState: function(){
-    console.log('PROPS : ', this.props.challenge);
     return {
       title: this.props.challenge.title,
       type: this.props.challenge.type,
-      challengerId: this.props.challenge.ChallengerId,
+      Challenger: this.props.challenge.Challenger,
+      Challenged: this.props.challenge.Challenged,
       description: this.props.challenge.description,
       charityAmount: this.props.challenge.charityAmount,
       expiresDate: this.props.challenge.expiresDate,
@@ -42,7 +42,7 @@ var DetailChallenge = React.createClass({
       <View style={styles.header}>
         <Image 
           style={styles.challengerPhoto}
-          source={require('../../image/placeholder.png')} />
+          source={{uri: this.state.Challenged.photoURL}} />
         <Text style={styles.socialText}>{this.state.charityAmount}</Text>
         <Text style={styles.socialText}>{this.state.expiresDate}</Text>
         <Text style={styles.socialText}>{this.state.likes}</Text>

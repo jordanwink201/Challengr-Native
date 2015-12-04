@@ -2,7 +2,7 @@
 'use strict';
 
 var React = require('react-native');
-var Carousel = require('react-native-looped-carousel');
+var Carousel = require('../../common/carousel');
 var Dimensions = require('Dimensions');
 var {width, height} = Dimensions.get('window');
 var _ = require('lodash');

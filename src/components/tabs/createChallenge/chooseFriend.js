@@ -131,7 +131,6 @@ var ChooseFriend = React.createClass({
 
 });
 
-
 var styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -181,6 +180,5 @@ var styles = StyleSheet.create({
   }
 
 });
-
 
 module.exports = ChooseFriend;
