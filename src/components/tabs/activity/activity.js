@@ -3,6 +3,8 @@
 
 var React = require('react-native');
 
+var { Icon, } = require('react-native-icons');
+
 var {
   StyleSheet,
   View,
@@ -12,6 +14,17 @@ var {
   TouchableHighlight,
   ActivityIndicatorIOS,
 } = React;
+
+/*
+  <Icon
+    name='material|accounts-alt'
+    size={70}
+    color='#3b5998'
+    style={styles.beer}
+  />
+*/
+
+var Icons = ['favorite-outline', 'favorite', 'card', 'camera', 'time', 'facebook-box', 'facebook', 'twitter', 'account', 'accounts-alt', 'search', 'settings', 'money'];
 
 var API = require('../../../api/challenges/challenges');
 var DetailChallenge = require('../detailChallenge');
@@ -81,6 +94,12 @@ var Activity = React.createClass({
           </View>
           <View style={styles.rightRow}>
             <View style={styles.rowData}>
+              <Icon
+                name='ion|beer'
+                size={150}
+                color='#887700'
+                
+              />
               <Text style={styles.rowDataTitle}>{rowData.title}</Text>
               <Text style={styles.rowDataDescription}>{rowData.description}</Text>
             </View>
@@ -175,13 +194,12 @@ var styles = StyleSheet.create({
   },
   leftRow: {
     flex: 1,
-    alignSelf: 'center',
+    backgroundColor: 'blue',
   },
   rightRow: {
     flex: 4,
     alignSelf: 'center',
-  }
-
+  },
 
 });
 
