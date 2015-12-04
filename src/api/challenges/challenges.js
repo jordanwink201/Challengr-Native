@@ -2,7 +2,7 @@ var API = require('../api');
 
 // Routes
 var userChallengesURL = `${API.rootUrl}challenge/my`;
-var allChallengesURL = `${API.rootUrl}challenge/`;
+var challengesURL = `${API.rootUrl}challenge/`;
 
 var UserAPI = {
 
@@ -14,9 +14,20 @@ var UserAPI = {
   },
 
   getAllChallenges: function(token){
-    return API.fetchJSON(allChallengesURL, 'GET', null, token)      
+    return API.fetchJSON(challengesURL, 'GET', null, token)      
       .then(function(json){
         return json;
+      });
+  },
+
+  updateChallenge: function(token, obj){
+    return API.fetchJSON(challengesURL, 'PUT', obj, token)
+      .then(function(json){
+        console.log('response : ', json);
+        return json;
+      })    
+      .catch(function (err) {
+        console.log('error increasing like : ', err);
       });
   }
 

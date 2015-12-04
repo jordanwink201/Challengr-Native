@@ -33,6 +33,7 @@ var Profile = React.createClass({
           firstName: valArr[2][1],
           lastName: valArr[3][1],
           photoURL: valArr[4][1],
+          token: valArr[5][1],
         });
         var token = valArr[5][1];
         // API
@@ -53,6 +54,7 @@ var Profile = React.createClass({
   getInitialState: function(){
     return {
       isLoading: false,
+      token: '',
       email: '',
       firstName: '',
       lastName: '',
@@ -166,14 +168,70 @@ var Profile = React.createClass({
               <Text style={styles.rowDataDescription}>{rowData.description}</Text>
             </View>
             <View style={styles.rowSocial}>
-              <Text style={styles.rowSocialText}>{rowData.charityAmount}</Text>
-              <Text style={styles.rowSocialText}>{rowData.likes}</Text>
-              <Text style={styles.rowSocialText}>{rowData.issuedDate}</Text>
+
+              <View style={styles.iconText}>
+                <Icon
+                  name='material|money'
+                  size={15}
+                  color='#333333'
+                  style={{width: 15, height: 15}}
+                />
+                <Text style={styles.rowSocialText}>{rowData.charityAmount * 100}</Text>
+              </View>
+
+
+              <TouchableHighlight
+                onPress={() => this.increaseLike(rowData)}
+                underlayColor='transparent'>
+                <View style={styles.iconText}>
+                  <Icon
+                    name='material|favorite-outline'
+                    size={15}
+                    color='#333333'
+                    style={{width: 15, height: 15}}
+                  />
+                  <Text style={styles.rowSocialText}>{rowData.likes}</Text>
+                </View>
+              </TouchableHighlight>
+
+              <View style={styles.iconText}>
+                <Icon
+                  name='material|time'
+                  size={15}
+                  color='#333333'
+                  style={{width: 15, height: 15}}
+                />
+                <Text style={styles.rowSocialText}>{rowData.issuedDate}</Text>
+              </View>
             </View>
           </View>
         </View>
       </TouchableHighlight>
     )
+  },
+
+  increaseLike: function(challenge){
+    console.log('increase like.. : ', challenge);
+
+    var updateObj = {
+      id: challenge.id,
+      likes: ++challenge.likes,
+      completed: challenge.completed,
+      notCompleted: challenge.notCompleted,
+    };
+
+    console.log('update obj : ', updateObj, ' with token : ', this.state.token);
+
+    // API
+    API.updateChallenge(this.state.token, updateObj)
+      .then(function(challenges){
+        // Loader
+        self.state.isLoading = false;
+        // State
+        self.setState({
+          dataSource: self.getDataSource(challenges),
+        })
+      })
   },
 
   _showDetailView: function(challenge){
@@ -293,6 +351,9 @@ var styles = StyleSheet.create({
   rowSocial:{
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  iconText: {
+    flexDirection: 'row',
   },
   rowSocialText:{
     color: '#546979',

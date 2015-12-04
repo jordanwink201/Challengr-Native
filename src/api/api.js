@@ -3,6 +3,7 @@ module.exports = {
   rootUrl : 'http://localhost:3000/api/',
 
   fetchJSON : function(url, method, body, token){
+    console.log('body : ', body);
     return fetch(url, {
         method: method,
         headers: {
