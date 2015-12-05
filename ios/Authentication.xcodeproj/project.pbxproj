@@ -27,6 +27,7 @@
 		887230161C11514000879988 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887230151C11514000879988 /* FontAwesome.otf */; };
 		887230181C11516E00879988 /* Material-Design-Iconic-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 887230171C11516E00879988 /* Material-Design-Iconic-Font.ttf */; };
 		88A7A1511C13730B0098B9F3 /* libRNTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A7A1501C1372940098B9F3 /* libRNTableView.a */; };
+		88A7A1551C1390410098B9F3 /* UIImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A7A1541C1390410098B9F3 /* UIImagePickerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,8 @@
 		887230151C11514000879988 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = FontAwesomeKit/FontAwesome.otf; sourceTree = "<group>"; };
 		887230171C11516E00879988 /* Material-Design-Iconic-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Material-Design-Iconic-Font.ttf"; path = "FontAwesomeKit/Material-Design-Iconic-Font.ttf"; sourceTree = "<group>"; };
 		88A7A1401C1372940098B9F3 /* RNTableView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNTableView.xcodeproj; path = "../node_modules/react-native-tableview/RNTableView.xcodeproj"; sourceTree = "<group>"; };
+		88A7A1531C1390410098B9F3 /* UIImagePickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImagePickerManager.h; sourceTree = "<group>"; };
+		88A7A1541C1390410098B9F3 /* UIImagePickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImagePickerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +291,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				88A7A1521C1390410098B9F3 /* UIImagePickerManager */,
+				88A7A1401C1372940098B9F3 /* RNTableView.xcodeproj */,
 				88024DDC1C0E623C00891791 /* ReactNativeIcons.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -314,7 +319,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				88A7A1401C1372940098B9F3 /* RNTableView.xcodeproj */,
 				887230171C11516E00879988 /* Material-Design-Iconic-Font.ttf */,
 				887230151C11514000879988 /* FontAwesome.otf */,
 				887230111C114F7F00879988 /* ionicons.ttf */,
@@ -350,6 +354,16 @@
 				88A7A1501C1372940098B9F3 /* libRNTableView.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		88A7A1521C1390410098B9F3 /* UIImagePickerManager */ = {
+			isa = PBXGroup;
+			children = (
+				88A7A1531C1390410098B9F3 /* UIImagePickerManager.h */,
+				88A7A1541C1390410098B9F3 /* UIImagePickerManager.m */,
+			);
+			name = UIImagePickerManager;
+			path = "../node_modules/react-native-image-picker/UIImagePickerManager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -616,6 +630,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				88A7A1551C1390410098B9F3 /* UIImagePickerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
