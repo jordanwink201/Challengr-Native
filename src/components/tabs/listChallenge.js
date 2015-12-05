@@ -3,6 +3,7 @@
 
 var React = require('react-native');
 var { Icon } = require('react-native-icons');
+var _ = require('lodash');
 
 var {
   StyleSheet,
@@ -22,6 +23,9 @@ var ListChallenge = React.createClass({
     var issue = Moment(this.props.rowData.issuedDate);
     var expire = Moment(this.props.rowData.expiresDate);
 
+    var title = _.trunc(this.props.rowData.title, 40);
+    var description = _.trunc(this.props.rowData.description, 40);
+
     return (
       <TouchableHighlight 
         onPress={() => this.props.showDetailView(this.props.rowData)}
@@ -38,8 +42,8 @@ var ListChallenge = React.createClass({
 
           <View style={styles.rightRow}>
             <View style={styles.rowData}>
-              <Text style={styles.rowDataTitle}>{this.props.rowData.title}</Text>
-              <Text style={styles.rowDataDescription}>{this.props.rowData.description}</Text>
+              <Text style={styles.rowDataTitle}>{title}</Text>
+              <Text style={styles.rowDataDescription}>{description}</Text>
             </View>
 
             <View style={styles.rowSocial}>
@@ -70,6 +74,7 @@ var ListChallenge = React.createClass({
                 style={styles.icon} />
                 <Text style={styles.rowSocialText}>{expire.fromNow()}</Text>
               </View>
+
             </View>
           </View>
         </View>

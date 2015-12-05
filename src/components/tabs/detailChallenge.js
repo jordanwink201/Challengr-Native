@@ -2,15 +2,19 @@
 'use strict';
 
 var React = require('react-native');
+var { Icon } = require('react-native-icons');
 
 var {
   StyleSheet,
   View,
   Text,
   Image,
+  ScrollView,
+  TouchableHighlight,
 } = React;
 
 var Button = require('../common/button');
+var Moment = require('moment');
 
 var DetailChallenge = React.createClass({
 
@@ -38,24 +42,58 @@ var DetailChallenge = React.createClass({
   },
 
   _renderHeader: function(){
+
+    var issue = Moment(this.state.issuedDate);
+    var expire = Moment(this.state.expiresDate);
+
     return(
       <View style={styles.header}>
+
         <Image 
           style={styles.challengerPhoto}
           source={{uri: this.state.Challenged.photoURL}} />
-        <Text style={styles.socialText}>{this.state.charityAmount}</Text>
-        <Text style={styles.socialText}>{this.state.expiresDate}</Text>
-        <Text style={styles.socialText}>{this.state.likes}</Text>
+
+        <View style={styles.iconText}>
+          <Icon
+            name='material|money'
+            size={15}
+            style={styles.icon} />
+          <Text style={styles.socialText}>{this.state.charityAmount * 100}</Text>
+        </View>
+
+        <TouchableHighlight
+          style={styles.iconText}
+          underlayColor='transparent'>
+          <View style={styles.iconText}>
+            <Icon
+            name='material|favorite-outline'
+            size={15}
+            style={styles.icon} />
+            <Text style={styles.socialText}>{this.state.likes}</Text>
+          </View>
+        </TouchableHighlight>
+      
+        <View style={styles.iconText}>
+          <Icon
+          name='material|time'
+          size={15}
+          style={styles.icon} />
+          <Text style={styles.socialText}>{expire.fromNow()}</Text>
+        </View>
+
       </View>
     )
   },
 
   _renderMain: function(){
     return(
-      <View style={styles.main}>
+      <ScrollView
+        automaticallyAdjustContentInsets={false}
+        scrollEventThrottle={200}
+        style={styles.main}>
         <Text>{this.state.type}</Text>
         <Text>{this.state.description}</Text>
-      </View>
+      </ScrollView>
     )
   },
 
@@ -92,7 +130,21 @@ var styles = StyleSheet.create({
   },
   socialText: {
     alignSelf: 'center',
+    color: '#546979',
+    fontSize: 14,
+    paddingLeft: 3,
   },
+  iconText: {
+    alignSelf: 'center',
+    flexDirection: 'row',
+  },
+
+  // icon
+  icon: {
+    width: 15,
+    height: 15,
+  },
+
   // Main
   main: {
     flex: 2,
