@@ -16,6 +16,7 @@ var {
   ActivityIndicatorIOS,
   TouchableHighlight,
   AlertIOS,
+  Image,
 } = React;
 
 var API = require('../../../api/charity/charity');
@@ -59,7 +60,9 @@ var Charity = React.createClass({
               onPress={() => this.selectCharity(charity)}>
               <View >
                 <Text>{charity.name}</Text>
-                <Text>{charity.imgUrl}</Text>
+                <Image 
+                  style={styles.charityPhoto}
+                  source={{uri: charity.imgUrl}} />
                 <Text>{charity.description}</Text>
                 <Text>{charity.link}</Text>
               </View>
@@ -111,7 +114,12 @@ var styles = StyleSheet.create({
     backgroundColor: '#BADA55', 
     width: width, 
     height: height
-  }
+  },
+
+  charityPhoto: {
+    width: 150, 
+    height: 150,
+  },
 
 
 

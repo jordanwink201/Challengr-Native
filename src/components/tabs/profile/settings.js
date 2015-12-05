@@ -2,6 +2,7 @@
 'use strict';
 
 var React = require('react-native');
+var { Icon } = require('react-native-icons');
 
 var {
   StyleSheet,
@@ -16,6 +17,7 @@ var {
 
 var Button = require('../../common/button');
 var API = require('../../../api/braintree/braintree');
+var Moment = require('moment');
 
 var Settings = React.createClass({
 
@@ -86,6 +88,9 @@ var Settings = React.createClass({
 
   // List View
   _renderRow: function(transaction){
+
+    var createdAt = Moment(transaction.created)
+
     return (
       <TouchableHighlight
         key={transaction.id}
@@ -98,9 +103,15 @@ var Settings = React.createClass({
               source={{uri: transaction.imgUrl}} />
           </View>
           <View style={styles.rightRow}>
-            <Text>{transaction.amount}</Text>
-            <Text>{transaction.last4}</Text>
-            <Text>{transaction.created}</Text>
+            <Text style={styles.paddingRight}>{transaction.last4}</Text>
+            <View style={styles.iconText}>
+              <Icon
+                name='material|money'
+                size={15}
+                style={styles.icon} />
+              <Text>{transaction.amount}</Text>
+            </View>
+            <Text style={styles.dateText}>{createdAt.format("MMM Do, YYYY")}</Text>
           </View>
         </View>
       </TouchableHighlight>
@@ -142,6 +153,9 @@ var styles = StyleSheet.create({
   scrollSpinner: {
     marginVertical: 20,
   },
+  paddingRight: {
+    paddingRight: 10,
+  },
 
   // Header
   header: {
@@ -162,7 +176,7 @@ var styles = StyleSheet.create({
   },
 
   leftRow: {
-    flex: 1,
+    paddingRight: 15,
     alignSelf: 'center',
   },
   rowPhoto: {
@@ -172,14 +186,12 @@ var styles = StyleSheet.create({
   },
 
   rightRow: {
-    flex: 4,
     alignSelf: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
   },
 
   rowSeparator: {
-    backgroundColor: 'rgba(216, 216, 216, 1)',
+    backgroundColor: 'rgba(216, 216, 216, 0.5)',
     height: 1,
     marginLeft: 80,
   },
@@ -188,6 +200,16 @@ var styles = StyleSheet.create({
     padding: 10,
     marginBottom: 50,
   },
+
+  iconText: {
+    flexDirection: 'row',
+  },
+
+  // icon
+  icon: {
+    width: 15,
+    height: 15,
+  }
 
 });
 

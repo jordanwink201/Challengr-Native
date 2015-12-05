@@ -2,7 +2,6 @@
 'use strict';
 
 var React = require('react-native');
-var { Icon } = require('react-native-icons');
 
 var {
   StyleSheet,
@@ -15,10 +14,9 @@ var {
   Image,
 } = React;
 
-var Icons = ['favorite-outline', 'favorite', 'card', 'camera', 'time', 'facebook-box', 'facebook', 'twitter', 'account', 'accounts-alt', 'search', 'settings', 'money'];
-
 var API = require('../../../api/challenges/challenges');
 var DetailChallenge = require('../detailChallenge');
+var ListChallenge = require('../listChallenge');
 
 var Activity = React.createClass({
 
@@ -40,7 +38,6 @@ var Activity = React.createClass({
               dataSource: self.getDataSource(challenges),
             })
           })
-
       })
       .done();
   },
@@ -69,67 +66,11 @@ var Activity = React.createClass({
     );
   },
 
-  _renderRow: function(rowData){
-    return (
-      <TouchableHighlight 
-        onPress={() => this._showDetailView(rowData)}
-        key={rowData.id}
-        underlayColor='transparent'
-        style={styles.row}>
-        <View style={styles.rowContainer}>
-          <View style={styles.leftRow}>
-            <Image 
-              style={styles.rowPhoto}
-              source={{uri: rowData.Challenged.photoURL}} />
-          </View>
-          <View style={styles.rightRow}>
-            <View style={styles.rowData}>
-              <Icon
-                name='ion|beer'
-                size={150}
-                color='#887700' />
-              <Text style={styles.rowDataTitle}>{rowData.title}</Text>
-              <Text style={styles.rowDataDescription}>{rowData.description}</Text>
-            </View>
-            <View style={styles.rowSocial}>
-
-              <View style={styles.iconText}>
-                <Icon
-                  name='material|money'
-                  size={15}
-                  color='#333333'
-                  style={{width: 15, height: 15}} />
-                <Text style={styles.rowSocialText}>{rowData.charityAmount * 100}</Text>
-              </View>
-
-              <TouchableHighlight
-                onPress={() => this.increaseLike(rowData)}
-                underlayColor='transparent'>
-                <View style={styles.iconText}>
-                  <Icon
-                    name='material|favorite-outline'
-                    size={15}
-                    color='#333333'
-                    style={{width: 15, height: 15}} />
-                  <Text style={styles.rowSocialText}>{rowData.likes}</Text>
-                </View>
-              </TouchableHighlight>
-
-              <View style={styles.iconText}>
-                <Icon
-                  name='material|time'
-                  size={15}
-                  color='#333333'
-                  style={{width: 15, height: 15}} />
-                <Text style={styles.rowSocialText}>{rowData.issuedDate}</Text>
-              </View>
-
-            </View>
-
-          </View>
-        </View>
-      </TouchableHighlight>
-    )
+  _renderRow: function(rowData){    
+    return  <ListChallenge 
+              rowData={rowData}
+              showDetailView={this._showDetailView}
+              token={this.state.token} />
   },
 
   _showDetailView: function(challenge){
@@ -168,55 +109,11 @@ var styles = StyleSheet.create({
     marginVertical: 20,
   },
 
-  // List View
-  row: {
-    marginBottom: 5,
-    marginTop: 5,
-  },
   separator: {
     backgroundColor: 'rgba(216, 216, 216, 1)',
     height: 1,
     marginLeft: 80,
-  },
-  rowContainer: {
-    flexDirection: 'row',
-  },
-  rowPhoto: {
-    width: 66,
-    height: 66,
-    borderRadius: 33,
-  },
-  // title & description
-  rowData: {
-
-  },
-  rowDataTitle: {
-    color: '#546979',
-    fontSize: 18,
-  },
-  rowDataDescription: {
-    color: '#546979',
-    fontSize: 16,
-  },
-  // likes, time, charity amount
-  rowSocial:{
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  rowSocialText:{
-    color: '#546979',
-    fontSize: 14,
-  },
-  iconText: {
-    flexDirection: 'row',
-  },
-  leftRow: {
-    flex: 1,
-  },
-  rightRow: {
-    flex: 4,
-    alignSelf: 'center',
-  },
+  }
 
 });
 

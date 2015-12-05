@@ -151,7 +151,7 @@ var Profile = React.createClass({
     return <ListChallenge 
               rowData={rowData}
               showDetailView={this._showDetailView}
-              token={this.state.token}/>
+              token={this.state.token} />
   },
 
   _showDetailView: function(challenge){

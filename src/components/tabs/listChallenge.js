@@ -13,10 +13,15 @@ var {
 } = React;
 
 var API = require('../../api/challenges/challenges');
+var Moment = require('moment');
 
 var ListChallenge = React.createClass({
 
   render: function() {
+
+    var issue = Moment(this.props.rowData.issuedDate);
+    var expire = Moment(this.props.rowData.expiresDate);
+
     return (
       <TouchableHighlight 
         onPress={() => this.props.showDetailView(this.props.rowData)}
@@ -63,7 +68,7 @@ var ListChallenge = React.createClass({
                 name='material|time'
                 size={15}
                 style={styles.icon} />
-                <Text style={styles.rowSocialText}>{this.props.rowData.issuedDate}</Text>
+                <Text style={styles.rowSocialText}>{expire.fromNow()}</Text>
               </View>
             </View>
           </View>
@@ -82,6 +87,7 @@ var ListChallenge = React.createClass({
     };
 
     API.updateChallenge(this.props.token, updateObj)
+
   },
 
 });
@@ -89,18 +95,14 @@ var ListChallenge = React.createClass({
 // Validation
 ListChallenge.propTypes = {
   rowData: React.PropTypes.object.isRequired,
-  showDetailView: React.PropTypes.func.isRequired
+  showDetailView: React.PropTypes.func.isRequired,
+  token: React.PropTypes.string.isRequired,
 }
 
 var styles = StyleSheet.create({
   row: {
     marginBottom: 5,
     marginTop: 5,
-  },
-  separator: {
-    backgroundColor: 'rgba(216, 216, 216, 1)',
-    height: 1,
-    marginLeft: 80,
   },
   rowContainer: {
     flexDirection: 'row',
@@ -133,6 +135,7 @@ var styles = StyleSheet.create({
   rowSocialText:{
     color: '#546979',
     fontSize: 14,
+    paddingLeft: 3,
   },
   leftRow: {
     flex: 1,
