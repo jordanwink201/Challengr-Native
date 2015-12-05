@@ -197,7 +197,6 @@ var styles = StyleSheet.create({
   },
 
   footer: {
-    padding: 10,
     marginBottom: 50,
   },
 

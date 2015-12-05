@@ -42,11 +42,20 @@ var ListChallenge = React.createClass({
 
           <View style={styles.rightRow}>
             <View style={styles.rowData}>
-              <Text style={styles.rowDataTitle}>{title}</Text>
+              <Text style={styles.rowDataTitle}>{_.capitalize(title)}</Text>
               <Text style={styles.rowDataDescription}>{description}</Text>
             </View>
 
             <View style={styles.rowSocial}>
+
+              <View style={styles.iconText}>
+                <Icon
+                name='material|time'
+                size={15}
+                style={styles.icon} />
+                <Text style={styles.rowSocialText}>{expire.fromNow()}</Text>
+              </View>
+
               <View style={styles.iconText}>
                 <Icon
                   name='material|money'
@@ -59,27 +68,31 @@ var ListChallenge = React.createClass({
                 onPress={() => this.increaseLike(this.props.rowData)}
                 underlayColor='transparent'>
                 <View style={styles.iconText}>
-                  <Icon
-                  name='material|favorite-outline'
-                  size={15}
-                  style={styles.icon} />
-                  <Text style={styles.rowSocialText}>{this.props.rowData.likes}</Text>
+                  {this.renderHeartIcon()}
+                  <Text style={styles.rowSocialText}>{this.props.rowData.likes} likes</Text>
                 </View>
               </TouchableHighlight>
-
-              <View style={styles.iconText}>
-                <Icon
-                name='material|time'
-                size={15}
-                style={styles.icon} />
-                <Text style={styles.rowSocialText}>{expire.fromNow()}</Text>
-              </View>
 
             </View>
           </View>
         </View>
       </TouchableHighlight>
     );
+  },
+
+  renderHeartIcon: function(){
+    if (this.props.rowData.likes > 0) {
+      return (<Icon
+      name='material|favorite'
+      size={15}
+      color={'red'}
+      style={styles.icon} />);
+    } else {
+      return (<Icon
+      name='material|favorite-outline'
+      size={15}
+      style={styles.icon} />);
+    }
   },
 
   increaseLike: function(challenge){
@@ -106,11 +119,13 @@ ListChallenge.propTypes = {
 
 var styles = StyleSheet.create({
   row: {
-    marginBottom: 5,
-    marginTop: 5,
+    marginBottom: 10,
+    marginTop: 10,
   },
   rowContainer: {
     flexDirection: 'row',
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   rowPhoto: {
     width: 66,
@@ -119,11 +134,12 @@ var styles = StyleSheet.create({
   },
   // title & description
   rowData: {
-
+    paddingBottom: 10,
   },
   rowDataTitle: {
-    color: '#546979',
+    color: '#38454F',
     fontSize: 18,
+    paddingBottom: 3,
   },
   rowDataDescription: {
     color: '#546979',
@@ -155,7 +171,8 @@ var styles = StyleSheet.create({
   icon: {
     width: 15,
     height: 15,
-  }
+  },
+
 });
 
 

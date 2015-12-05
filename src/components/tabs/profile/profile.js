@@ -234,7 +234,6 @@ var styles = StyleSheet.create({
 
   // Footer/List View
   footer: {
-    padding: 10,
     flex: 2,
     marginBottom: 50,
   },

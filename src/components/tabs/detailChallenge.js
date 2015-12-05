@@ -11,6 +11,7 @@ var {
   Image,
   ScrollView,
   TouchableHighlight,
+  AlertIOS,
 } = React;
 
 var Button = require('../common/button');
@@ -61,6 +62,14 @@ var DetailChallenge = React.createClass({
 
         <View style={styles.iconText}>
           <Icon
+          name='material|time'
+          size={15}
+          style={styles.icon} />
+          <Text style={styles.socialText}>{expire.fromNow()}</Text>
+        </View>
+
+        <View style={styles.iconText}>
+          <Icon
             name='material|money'
             size={15}
             style={styles.icon} />
@@ -71,24 +80,28 @@ var DetailChallenge = React.createClass({
           style={styles.iconText}
           underlayColor='transparent'>
           <View style={styles.iconText}>
-            <Icon
-            name='material|favorite-outline'
-            size={15}
-            style={styles.icon} />
+            {this.renderHeartIcon()}
             <Text style={styles.socialText}>{this.state.likes}</Text>
           </View>
         </TouchableHighlight>
-      
-        <View style={styles.iconText}>
-          <Icon
-          name='material|time'
-          size={15}
-          style={styles.icon} />
-          <Text style={styles.socialText}>{expire.fromNow()}</Text>
-        </View>
 
       </View>
     )
+  },
+
+  renderHeartIcon: function(){
+    if (this.state.likes > 0) {
+      return (<Icon
+      name='material|favorite'
+      size={15}
+      color={'red'}
+      style={styles.icon} />);
+    } else {
+      return (<Icon
+      name='material|favorite-outline'
+      size={15}
+      style={styles.icon} />);
+    }
   },
 
   _renderMain: function(){
@@ -114,7 +127,17 @@ var DetailChallenge = React.createClass({
   },
 
   challengeComplete: function(){
-
+    // show alert saying do you really want to choose this charity?
+    AlertIOS.alert(
+      'Have they completed the challenge?',
+      null,
+      [
+        {text: 'Cancel', onPress: () => console.log('Button Pressed!')},
+        {text: 'Yes', onPress: () => {
+          console.log('complete the challenge...');
+        }},
+      ]
+    )
   },
 
 });
@@ -136,8 +159,7 @@ var styles = StyleSheet.create({
   // Challenged and Challenger Images
   images: {
     flexDirection: 'row',
-    paddingTop: 10,
-    paddingRight: 10,
+    // backgroundColor: 'red',
   },
   challengerPhoto: {
     flex: 1,
@@ -151,10 +173,8 @@ var styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
   },
-
-
 
   socialText: {
     alignSelf: 'center',

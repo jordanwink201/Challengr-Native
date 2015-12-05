@@ -2,6 +2,7 @@
 'use strict';
 
 var React = require('react-native');
+var _ = require('lodash');
 
 var {
   StyleSheet,
@@ -75,7 +76,7 @@ var Activity = React.createClass({
 
   _showDetailView: function(challenge){
     this.props.navigator.push({
-      title: challenge.title,
+      title: _.capitalize(challenge.title),
       component: DetailChallenge,
       passProps: {challenge: challenge}
     });
