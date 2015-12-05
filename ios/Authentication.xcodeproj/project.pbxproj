@@ -26,6 +26,7 @@
 		887230121C114F7F00879988 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 887230111C114F7F00879988 /* ionicons.ttf */; };
 		887230161C11514000879988 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887230151C11514000879988 /* FontAwesome.otf */; };
 		887230181C11516E00879988 /* Material-Design-Iconic-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 887230171C11516E00879988 /* Material-Design-Iconic-Font.ttf */; };
+		88A7A1511C13730B0098B9F3 /* libRNTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A7A1501C1372940098B9F3 /* libRNTableView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,13 @@
 			remoteGlobalIDString = 2F5A3EB81ACDBF8000439386;
 			remoteInfo = ReactNativeIcons;
 		};
+		88A7A14F1C1372940098B9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88A7A1401C1372940098B9F3 /* RNTableView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 873769951B7CD6E900F7C3C2;
+			remoteInfo = RNTableView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +149,7 @@
 		887230111C114F7F00879988 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		887230151C11514000879988 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = FontAwesomeKit/FontAwesome.otf; sourceTree = "<group>"; };
 		887230171C11516E00879988 /* Material-Design-Iconic-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Material-Design-Iconic-Font.ttf"; path = "FontAwesomeKit/Material-Design-Iconic-Font.ttf"; sourceTree = "<group>"; };
+		88A7A1401C1372940098B9F3 /* RNTableView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNTableView.xcodeproj; path = "../node_modules/react-native-tableview/RNTableView.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A7A1511C13730B0098B9F3 /* libRNTableView.a in Frameworks */,
 				88024DE21C0E625300891791 /* libReactNativeIcons.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -304,6 +314,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				88A7A1401C1372940098B9F3 /* RNTableView.xcodeproj */,
 				887230171C11516E00879988 /* Material-Design-Iconic-Font.ttf */,
 				887230151C11514000879988 /* FontAwesome.otf */,
 				887230111C114F7F00879988 /* ionicons.ttf */,
@@ -329,6 +340,14 @@
 			isa = PBXGroup;
 			children = (
 				88024DE11C0E623C00891791 /* libReactNativeIcons.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88A7A1411C1372940098B9F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88A7A1501C1372940098B9F3 /* libRNTableView.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -443,6 +462,10 @@
 					ProductGroup = 88024DDD1C0E623C00891791 /* Products */;
 					ProjectRef = 88024DDC1C0E623C00891791 /* ReactNativeIcons.xcodeproj */;
 				},
+				{
+					ProductGroup = 88A7A1411C1372940098B9F3 /* Products */;
+					ProjectRef = 88A7A1401C1372940098B9F3 /* RNTableView.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -528,6 +551,13 @@
 			fileType = archive.ar;
 			path = libReactNativeIcons.a;
 			remoteRef = 88024DE01C0E623C00891791 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		88A7A1501C1372940098B9F3 /* libRNTableView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNTableView.a;
+			remoteRef = 88A7A14F1C1372940098B9F3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

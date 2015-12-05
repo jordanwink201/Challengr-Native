@@ -14,7 +14,7 @@ var {
   AlertIOS,
 } = React;
 
-var Button = require('../common/button');
+var Button = require('./button');
 var Moment = require('moment');
 
 var DetailChallenge = React.createClass({
