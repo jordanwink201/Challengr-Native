@@ -49,9 +49,15 @@ var DetailChallenge = React.createClass({
     return(
       <View style={styles.header}>
 
-        <Image 
-          style={styles.challengerPhoto}
-          source={{uri: this.state.Challenged.photoURL}} />
+        <View style={styles.images}>
+          <Image 
+            style={styles.challengedPhoto}
+            source={{uri: this.state.Challenged.photoURL}} />
+
+          <Image 
+            style={styles.challengerPhoto}
+            source={{uri: this.state.Challenger.photoURL}} />
+        </View>
 
         <View style={styles.iconText}>
           <Icon
@@ -101,11 +107,15 @@ var DetailChallenge = React.createClass({
     return(
       <View style={styles.footer}>
         <Button
-          text={'Upload Images'}
-          onPress={this.signIn}/>
+          text={'Challenge Completed ?'}
+          onPress={this.challengeComplete}/>
       </View>
     )
-  }
+  },
+
+  challengeComplete: function(){
+
+  },
 
 });
 
@@ -122,12 +132,30 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
+
+  // Challenged and Challenger Images
+  images: {
+    flexDirection: 'row',
+    paddingTop: 10,
+    paddingRight: 10,
+  },
   challengerPhoto: {
+    flex: 1,
     width: 100,
     height: 100,
     borderRadius: 50,
     alignSelf: 'center',
   },
+  challengedPhoto: {
+    flex: 1,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    alignSelf: 'flex-end',
+  },
+
+
+
   socialText: {
     alignSelf: 'center',
     color: '#546979',
