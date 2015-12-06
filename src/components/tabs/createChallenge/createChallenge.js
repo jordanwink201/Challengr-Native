@@ -98,6 +98,7 @@ var CreateChallenge = React.createClass({
         />
 
         <Button
+          icon={true}
           text={'Next'}
           onPress={this._nextRoute}/>
 

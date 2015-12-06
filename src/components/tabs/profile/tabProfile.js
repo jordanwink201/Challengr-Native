@@ -16,6 +16,7 @@ var TabProfile = React.createClass({
   render: function() {
     return (
       <NavigatorIOS
+        tintColor={'#FFFFFF'}
         barTintColor={'#47A0DB'}
         style={styles.container}
         initialRoute={{
