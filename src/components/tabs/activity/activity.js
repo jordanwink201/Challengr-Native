@@ -118,5 +118,4 @@ var styles = StyleSheet.create({
 
 });
 
-
 module.exports = Activity;

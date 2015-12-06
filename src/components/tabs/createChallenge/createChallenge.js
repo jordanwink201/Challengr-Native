@@ -47,8 +47,8 @@ var CreateChallenge = React.createClass({
               source={{uri: this.props.friend.photoURL}} />
           </View>
           <View style={styles.rightRow}>
-            <Text>Challenging</Text>
-            <Text>{this.props.friend.firstName} {this.props.friend.lastName}</Text>
+            <Text style={styles.textSubHeader}>Challenging</Text>
+            <Text style={styles.textHeader}>{this.props.friend.firstName} {this.props.friend.lastName}</Text>
           </View>
         </View>
       </View>
@@ -127,6 +127,7 @@ var styles = StyleSheet.create({
     flex: 1,
     borderBottomColor: 'rgba(216, 216, 216, 1)',
     borderBottomWidth: 1,
+    backgroundColor: '#F3F3F3',
     marginTop: 60,
     justifyContent: 'center',
   },
@@ -157,27 +158,45 @@ var styles = StyleSheet.create({
   main: {
     flex: 3,
     marginBottom: 50,
-    padding: 10,
   },
   textInput: {
     height: 40,
-    borderColor: 'red',
+    borderColor: '#DDE1E4',
     borderWidth: 1,
     marginBottom: 10,
     borderRadius: 4,
     paddingLeft: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    color: 'rgba(84, 105, 121, 1)'
   },
   textInputArea: {
     paddingLeft: 10,
     height: 80,
-    borderColor: 'red',
+    borderColor: '#DDE1E4',
     borderWidth: 1,
     borderRadius: 4,
+    marginLeft: 10,
+    marginRight: 10,
+    fontSize: 18,
+    color: 'rgba(84, 105, 121, 1)'
   },
   typePicker: {
     padding: 0,
     margin: 0,
-  }
+    color: 'rgba(84, 105, 121, 1)',
+  },
+
+  // TExt
+  textHeader: {
+    color: 'rgba(84, 105, 121, 1)',
+    fontSize: 22,
+  },
+  textSubHeader: {
+    color: 'rgba(84, 105, 121, 0.6)',
+    fontSize: 18,
+    paddingBottom: 5,
+  },
 
 });
 

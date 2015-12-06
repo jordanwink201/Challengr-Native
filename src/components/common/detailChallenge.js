@@ -154,6 +154,7 @@ var styles = StyleSheet.create({
     marginTop: 66,
     flexDirection: 'row',
     justifyContent: 'space-around',
+    backgroundColor: '#F3F3F3',
   },
 
   // Challenged and Challenger Images
