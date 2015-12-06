@@ -16,6 +16,7 @@ var TabActivity = React.createClass({
     return (
       <NavigatorIOS
         tintColor={'#FFFFFF'}
+        titleTextColor={'#FFFFFF'}
         barTintColor={'#47A0DB'}
         style={styles.container}
         initialRoute={{

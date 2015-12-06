@@ -71,7 +71,8 @@ var Charity = React.createClass({
                 <Text style={styles.textParagraph}>{charity.description}</Text>
 
                 <Link
-                  text={_.trim(charity.link, 'http://www./')}
+                  underlayColor={'transparent'}
+                  text={_.trim(charity.link, 'https://www./')}
                   onPress={this.goToLink(charity.link)}/>  
 
                 <Image 

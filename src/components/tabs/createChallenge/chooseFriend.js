@@ -83,7 +83,7 @@ var ChooseFriend = React.createClass({
 
   selectFriend: function(friend){
     this.props.navigator.push({
-      title: 'Create Challenge',
+      title: 'Challenge',
       component: CreateChallenge,
       passProps: {friend: friend}
     });

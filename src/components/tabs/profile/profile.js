@@ -232,7 +232,6 @@ var styles = StyleSheet.create({
   // Header
   header: {
     flex: 1,
-    marginTop: 60,
     padding: 10,
     backgroundColor: 'EEAF4B',
     alignItems: 'center',

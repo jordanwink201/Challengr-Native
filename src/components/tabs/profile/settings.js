@@ -27,6 +27,7 @@ var Moment = require('moment');
 var Settings = React.createClass({
 
   componentDidMount: function(){
+
     var self = this;
     // Loader
     self.state.isLoading = true;
@@ -75,7 +76,7 @@ var Settings = React.createClass({
               underlayColor='transparent'>
 
               <View style={styles.cell}>
-                <Text>{name}</Text>
+                <Text style={styles.textParagraph}>{name}</Text>
                 <Icon
                   name='material|chevron-right'
                   size={20}
@@ -283,7 +284,12 @@ var styles = StyleSheet.create({
   icon: {
     width: 15,
     height: 15,
-  }
+  },
+
+  // Text
+  textParagraph: {
+    fontSize: 16,
+  },
 
 });
 

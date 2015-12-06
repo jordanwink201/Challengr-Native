@@ -76,7 +76,6 @@ var CreateChallenge = React.createClass({
               </PickerIOS.Item>              
             ) 
           )}
-
         </PickerIOS>
 
         <TextInput
@@ -85,8 +84,7 @@ var CreateChallenge = React.createClass({
           onChangeText={(text) => this.setState({
             title: text
           })}
-          value={this.state.text}
-        />
+          value={this.state.text} />
 
         <TextInput
           style={styles.textInputArea}
@@ -94,8 +92,7 @@ var CreateChallenge = React.createClass({
           multiline={true}
           onChangeText={(text) => this.setState({
             description: text
-          })}
-        />
+          })} />
 
         <Button
           icon={true}
@@ -116,7 +113,6 @@ var CreateChallenge = React.createClass({
   }
 
 });
-
 
 var styles = StyleSheet.create({
   container: {
@@ -188,7 +184,7 @@ var styles = StyleSheet.create({
     color: 'rgba(84, 105, 121, 1)',
   },
 
-  // TExt
+  // Text
   textHeader: {
     color: 'rgba(84, 105, 121, 1)',
     fontSize: 22,
@@ -198,8 +194,6 @@ var styles = StyleSheet.create({
     fontSize: 18,
     paddingBottom: 5,
   },
-
 });
-
 
 module.exports = CreateChallenge;
