@@ -2,6 +2,8 @@
   ![](https://s3-us-west-2.amazonaws.com/challengrimages/screenshots/challengrMobileLG.png)
 
   **Challengr** is a social challenging app where you can challenge your friends to complete the tasks that are long overdue and help them achieve their goals.
+  
+  **Challengr Promo Video** https://youtu.be/BAItNZmtzjY
 
   This is the repo for the mobile app for our corresponding web front-end and API backend, which you can find [here](https://github.com/hacksquare/Challengr). The application is built with the awesome [React Native Framework](https://github.com/facebook/react-native) made by Facebook. React Native made it possible for us to write a mobile application nearly completely in JavaScript, while at the same time harnessing many of the native mobile features; Something that is not possible in most of the hybrid mobile SDK's like Ionic.
 
