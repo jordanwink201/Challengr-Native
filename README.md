@@ -1,5 +1,5 @@
 #Challengr-Native
-  ![](screenshots/challengrMobileLG.png)
+  ![](https://s3-us-west-2.amazonaws.com/challengrimages/screenshots/challengrMobileLG.png)
 
   **Challengr** is a social challenging app where you can challenge your friends to complete the tasks that are long overdue and help them achieve their goals.
 
@@ -9,7 +9,7 @@
   Thank you for taking interest to contribute. In order to contribute please check out the contributing and style guide in the [main repo](https://github.com/hacksquare/Challengr).
 
 ##Architecture
-  ![](screenshots/architecture.jpg)
+  ![](https://s3-us-west-2.amazonaws.com/challengrimages/screenshots/architecture.jpg)
 
 ##Usage
   The application is unfortunately not available in the app store yet. If you want to check out the application live you can definitely do so by downloading the source code for both the API backend and this repo. After downloading the source code:
@@ -20,7 +20,7 @@
   - Open the project in Xcode and start the simulator
 
 ##Screenshots
-  ![](screenshots/example.png)
+  ![](https://s3-us-west-2.amazonaws.com/challengrimages/screenshots/example.png)
 
 ##Contributors
   - Jordan Winkelman
